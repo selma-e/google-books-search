@@ -36,22 +36,32 @@ function Save() {
       <Row>
         <Col size="md-12 sm-12">
           <Jumbotron>
-            <h1>(React) Google Books Search Search</h1>
+            <h1>(React) Google Books Search</h1>
             <h1>Search for and Save Books of Interest</h1>
           </Jumbotron>
           {books.length ? (
             <List>
               {books.map((book) => (
                 <ListItem key={book._id}>
-                  <strong>
-                    {book.title} by {book.authors}
-                  </strong>
-                  <img src={book.image} />
-                  <p>{book.description}</p>
                   <Button className="float-right" href={book.link}>
                     View
                   </Button>
                   <DeleteBtn onClick={() => deleteBook(book._id)} />
+                  <strong>
+                    {book.title}
+                    <br></br>
+                    Written by {book.authors}
+                  </strong>
+                  <br></br>
+                  <br></br>
+                  <Row>
+                    <Col size="md-2 sm-12">
+                      <img src={book.image} />
+                    </Col>
+                    <Col size="md-10 sm-12">
+                      <p>{book.description}</p>
+                    </Col>
+                  </Row>
                 </ListItem>
               ))}
             </List>

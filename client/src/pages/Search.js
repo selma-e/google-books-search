@@ -50,7 +50,7 @@ function Search() {
     API.saveBook({
       key: id,
       title: title,
-      author: authors,
+      authors: authors,
       description: description,
       image: image,
       link: infoLink,
@@ -64,14 +64,14 @@ function Search() {
       <Row>
         <Col size="md-12">
           <Jumbotron>
-            <h1>(React) Google Books Search Search</h1>
+            <h1>(React) Google Books Search</h1>
             <h1>Search for and Save Books of Interest</h1>
           </Jumbotron>
           <form>
             <Input
               onChange={handleInputChange}
               name="title"
-              placeholder="Title (required)"
+              placeholder="Enter Book Title"
             />
             <FormBtn disabled={!formObject.title} onClick={handleFormSubmit}>
               Submit
@@ -118,13 +118,11 @@ function Search() {
                 }
                 return (
                   <ListItem key={id}>
-                    <strong>
-                      {title} by {authors}
-                    </strong>
-                    <img src={image} />
-                    <p>{description}</p>
-                    <Button href={infoLink}>View</Button>
+                    <Button className="float-right" href={infoLink}>
+                      View
+                    </Button>
                     <Button
+                      className="float-right mr-2"
                       onClick={() =>
                         saveBook(
                           id,
@@ -138,6 +136,21 @@ function Search() {
                     >
                       Save
                     </Button>
+                    <strong>
+                      {title}
+                      <br></br>
+                      Written by {authors}
+                    </strong>
+                    <br></br>
+                    <br></br>
+                    <Row>
+                      <Col size="md-2 sm-12">
+                        <img src={image} />
+                      </Col>
+                      <Col size="md-10 sm-12">
+                        <p>{description}</p>
+                      </Col>
+                    </Row>
                   </ListItem>
                 );
               })}
