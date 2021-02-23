@@ -3,7 +3,7 @@ import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
+import { Col, Row, Container, Button } from "react-bootstrap";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
@@ -31,43 +31,26 @@ function Save() {
       .catch((err) => console.log(err));
   }
 
-  // Handles updating component state when the user types into the input field
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormObject({ ...formObject, [name]: value });
-  }
-
-  // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload books from the database
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    if (formObject.title && formObject.author) {
-      API.saveBook({
-        title: formObject.title,
-        author: formObject.author,
-        synopsis: formObject.synopsis,
-      })
-        .then((res) => loadBooks())
-        .catch((err) => console.log(err));
-    }
-  }
-
   return (
     <Container fluid>
       <Row>
-        <Col size="md-6 sm-12">
+        <Col size="md-12 sm-12">
           <Jumbotron>
-            <h1>Books On My List</h1>
+            <h1>(React) Google Books Search Search</h1>
+            <h1>Search for and Save Books of Interest</h1>
           </Jumbotron>
           {books.length ? (
             <List>
               {books.map((book) => (
                 <ListItem key={book._id}>
-                  <Link to={"/books/" + book._id}>
-                    <strong>
-                      {book.title} by {book.author}
-                    </strong>
-                  </Link>
+                  <strong>
+                    {book.title} by {book.authors}
+                  </strong>
+                  <img src={book.image} />
+                  <p>{book.description}</p>
+                  <Button className="float-right" href={book.link}>
+                    View
+                  </Button>
                   <DeleteBtn onClick={() => deleteBook(book._id)} />
                 </ListItem>
               ))}

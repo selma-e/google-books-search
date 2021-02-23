@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container, Button } from "../components/Grid";
+import { Col, Row, Container, Button } from "react-bootstrap";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
@@ -46,7 +46,7 @@ function Search() {
     console.log("You're in the view button");
   }
 
-  function saveGoogleBook(id, title, authors, description, image, infoLink) {
+  function saveBook(id, title, authors, description, image, infoLink) {
     API.saveBook({
       key: id,
       title: title,
@@ -78,6 +78,8 @@ function Search() {
             </FormBtn>
           </form>
         </Col>
+      </Row>
+      <Row>
         <Col size="md-12 sm-12">
           {googleBooks.length ? (
             <List>
@@ -124,7 +126,7 @@ function Search() {
                     <Button href={infoLink}>View</Button>
                     <Button
                       onClick={() =>
-                        saveGoogleBook(
+                        saveBook(
                           id,
                           title,
                           authors,
