@@ -6,8 +6,8 @@ In this activity, I am building a daily planner that utilizes localhost to store
 
 ## Installation:
 
-- If you need to pull my code for this homework, please visit my Github repository at: https://github.com/selma-e/hw5_daily_planner
-- If you want to see the final webpage for my code, please visit my hosted website at: https://selma-e.github.io/hw5_daily_planner/
+- If you need to pull my code for this homework, please visit my Github repository at: https://github.com/selma-e/google-books-search
+- If you want to see the final webpage for my code, please visit my hosted website at: https://blooming-garden-95148.herokuapp.com/
 
 ## Usage:
 
