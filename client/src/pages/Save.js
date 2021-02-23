@@ -55,10 +55,10 @@ function Save() {
                   <br></br>
                   <br></br>
                   <Row>
-                    <Col size="md-2 sm-12">
+                    <Col md={2}>
                       <img src={book.image} />
                     </Col>
-                    <Col size="md-10 sm-12">
+                    <Col md={10}>
                       <p>{book.description}</p>
                     </Col>
                   </Row>

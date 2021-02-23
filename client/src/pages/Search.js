@@ -144,10 +144,10 @@ function Search() {
                     <br></br>
                     <br></br>
                     <Row>
-                      <Col size="md-2 sm-12">
+                      <Col md={2}>
                         <img src={image} />
                       </Col>
-                      <Col size="md-10 sm-12">
+                      <Col md={10}>
                         <p>{description}</p>
                       </Col>
                     </Row>
